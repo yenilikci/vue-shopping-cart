@@ -1,7 +1,9 @@
 <template>
   <div id="products">
     <h2>Products</h2>
-    <div class="notification" v-for="(info, key) in infos" :key="key"></div>
+    <div class="notification" v-for="(info, key) in infos" :key="key">
+      {{ info }}
+    </div>
     <table :class="{ products: products.length !== 0 }">
       <tr>
         <th>Product Name</th>

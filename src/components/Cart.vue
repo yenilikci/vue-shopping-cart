@@ -6,7 +6,7 @@
         <span class="item-name">
           {{ item.name }}
           <button @click="decreaseItemCount(item)">-1</button>
-          <button @click="removeItem()">X</button>
+          <button @click="removeItem(item)">X</button>
         </span>
         <span class="item-count">{{ item.count }}</span>
         <span class="item-amount">{{
@@ -26,7 +26,7 @@
 </template>
 
 <script>
-  import { mapState, mapMutations, mapGetters, mapGetters } from "vuex";
+  import { mapState, mapMutations, mapGetters } from "vuex";
   export default {
     computed: {
       ...mapState(["cart"]),

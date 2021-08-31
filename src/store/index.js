@@ -39,6 +39,8 @@ export const store = new Vuex.Store({
     },
     removeItem({ cart }, value) {
       const itemIndex = cart.findIndex((item) => item.id === value.id);
+      console.log("bruh");
+
       cart.splice(itemIndex, 1);
     },
     clearAll(state) {

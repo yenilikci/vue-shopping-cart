@@ -1,5 +1,9 @@
 <template>
-  <div id="app"></div>
+  <div id="app">
+    <router-link to="/products">Products</router-link>
+    <router-link to="/cart">Cart</router-link>
+    <router-view></router-view>
+  </div>
 </template>
 
 <script>
@@ -17,5 +21,7 @@
     text-align: center;
     color: #2c3e50;
     margin-top: 60px;
+    display: flex;
+    flex-direction: column;
   }
 </style>
