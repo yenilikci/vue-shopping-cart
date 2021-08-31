@@ -10,8 +10,18 @@ export const store = new Vuex.Store({
     products: productList,
   },
 
+  getters: {
+    totalAmount(state) {
+      let amount = 0;
+      state.cart.map((item) => {
+        amount += item.price * item.count;
+      });
+      return amount;
+    },
+  },
+
   mutations: {
-    addToCard: ({ cart }, value) => {
+    addToCard({ cart }, value) {
       //value => product
       const itemIndex = cart.findIndex((item) => item.id === value.id);
       if (itemIndex === -1) {
@@ -20,6 +30,19 @@ export const store = new Vuex.Store({
         cart[itemIndex].count =
           parseInt(value.count) + parseInt(cart[itemIndex].count);
       }
+    },
+    decreaseItemCount({ cart }, value) {
+      const itemIndex = cart.findIndex((item) => item.id === value.id);
+      cart[itemIndex].count > 1
+        ? cart[itemIndex].count--
+        : cart.splice(itemIndex, 1);
+    },
+    removeItem({ cart }, value) {
+      const itemIndex = cart.findIndex((item) => item.id === value.id);
+      cart.splice(itemIndex, 1);
+    },
+    clearAll(state) {
+      state.cart = [];
     },
   },
 });

@@ -33,7 +33,7 @@
       };
     },
     computed: {
-      ...mapState["products"],
+      ...mapState(["products"]),
     },
     methods: {
       addToCart(product) {
