@@ -1,6 +1,6 @@
 <template>
   <div id="products">
-    <h2>Products</h2>
+    <h2 class="title">Products</h2>
     <div class="notification" v-for="(info, key) in infos" :key="key">
       {{ info }}
     </div>
@@ -9,6 +9,7 @@
         <th>Product Name</th>
         <th>Price</th>
         <th>Buy</th>
+        <th>Add</th>
       </tr>
       <tr v-for="product in products" :key="product.id">
         <td>{{ product.name }}</td>
@@ -19,7 +20,7 @@
           </label>
         </td>
         <td>
-          <button @click="addToCart(product)">Add to cart</button>
+          <button @click="addToCart(product)">+ Add to cart</button>
         </td>
       </tr>
     </table>
@@ -62,7 +63,14 @@
   };
 </script>
 
-<style>
+<style scoped>
+  .title {
+    background-color: rgb(44, 41, 41);
+    color: #fff;
+    padding: 10px 30px;
+    border-radius: 20px;
+    width: 200px;
+  }
   #products {
     display: flex;
     flex-direction: column;
@@ -74,13 +82,14 @@
   }
   .products td,
   th {
-    border: 1px solid #ddd;
+    border: 2px solid rgb(10, 10, 10);
     padding: 10px;
   }
   .notification {
-    background-color: #ddd;
-    padding: 20px;
-    width: 400px;
+    background-color: rgb(31, 238, 59);
+    color: #fff;
+    padding: 10px;
+    width: 300px;
     margin-bottom: 20px;
     border-radius: 25px;
     font-size: 24px;
@@ -89,5 +98,8 @@
     border: none;
     cursor: pointer;
     padding: 5px 10px;
+    background-color: green;
+    color: #fff;
+    border-radius: 5px;
   }
 </style>

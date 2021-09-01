@@ -1,6 +1,8 @@
 <template>
   <div>
-    <h2>Cart</h2>
+    <div class="title-div">
+      <h2 class="title">Cart</h2>
+    </div>
     <ul>
       <li v-for="item in cart" :key="item.id">
         <span class="item-name">
@@ -41,40 +43,55 @@
   };
 </script>
 
-<style>
+<style scoped>
+  .title-div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .title {
+    background-color: rgb(44, 41, 41);
+    color: #fff;
+    padding: 10px 30px;
+    border-radius: 20px;
+    width: 200px;
+  }
   ul {
     list-style: none;
   }
   li {
     display: flex;
-    max-width: 700px;
-    margin: 10px auto auto;
+    max-width: 800px;
+    align-items: center;
+    justify-content: center;
   }
   .item-name {
-    text-align: left;
     font-size: 18px;
-    flex: 2;
+    flex: 6;
   }
   .item-count {
     font-size: 25px;
     margin-left: 10px;
-    flex: 2;
+    margin-right: 20px;
+    flex: 1;
   }
   .item-amount {
-    text-align: left;
     flex: 1;
+    font-size: 25px;
+    text-decoration: underline;
+    text-decoration-color: lawngreen;
   }
   .total-amount {
     border-top: 2px solid #333;
     border-bottom: 2px solid #333;
-    padding: 10px 20% 10px 10px;
+    padding: 10px;
     margin: 10px;
-    font-size: 29px;
-    text-align: right;
+    font-size: 35px;
   }
   button {
     border: none;
     cursor: pointer;
-    padding: 5px 10px;
+    padding: 10px 15px;
+    margin: 5px;
   }
 </style>
